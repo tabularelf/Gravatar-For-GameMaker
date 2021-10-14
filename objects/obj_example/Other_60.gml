@@ -1,2 +1,2 @@
-/// @description Cat Judges your code
+/// @description Gravatar Async needed
 gravatar_async();
