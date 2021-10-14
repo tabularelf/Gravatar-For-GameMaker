@@ -35,7 +35,7 @@ gravatar_async() - Handles Gravatar loading. Should be in the Async Event Image 
 ## Methods
 
 ```
-.setEmail(email) - sets email.
+.setEmail(email) - sets email to load future Gravatars with.
 
 .setSize(size) - Default 80: Sets the size to load future Gravatars with.
 
