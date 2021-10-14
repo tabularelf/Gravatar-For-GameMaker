@@ -1,11 +1,17 @@
+#macro GRAVATAR_VERSION "v1.0.0"
+#macro GRAVATAR_AUTHOR "TabularElf - https://tabularelf.com/"
+
 function __gravatar_init() {
 	static _init = false;
 	if (_init == false) {
 		global.__gravatarAsync = [];
 		global.__gravatarMap = {};
 		_init = true;
+		__gravatar_trace("Gravatar " + GRAVATAR_VERSION + " initialized! By " + GRAVATAR_AUTHOR);
 	}
 }
+
+__gravatar_init();
 
 function __gravatar_trace(_string) {
 	show_debug_message("Gravatar: " + _string);	
