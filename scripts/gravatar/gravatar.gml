@@ -7,7 +7,7 @@ function __gravatar_init() {
 		global.__gravatarAsync = [];
 		global.__gravatarMap = {};
 		_init = true;
-		__gravatar_trace("Gravatar " + GRAVATAR_VERSION + " initialized! By " + GRAVATAR_AUTHOR);
+		__gravatar_trace("Gravatar " + GRAVATAR_VERSION + " initialized! Author: " + GRAVATAR_AUTHOR);
 	}
 }
 
