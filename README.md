@@ -27,7 +27,9 @@ if (_image != -1) {
 ```gml
 gravatar_image_get(email) - Gets image from email.
 
-gravatar_image_delete(email) - Removes image and email from the Global Gravatar Database, but not the Gravatar Constructor Database. (Debugging intended)
+gravatar_image_delete(email) - Removes image and email from the Global Gravatar Database, but not the Gravatar Constructor Database. (Debugging intended)'
+
+gravatar_async() - Handles Gravatar loading. Should be in the Async Event Image Loaded.
 ```
 
 ## Methods
