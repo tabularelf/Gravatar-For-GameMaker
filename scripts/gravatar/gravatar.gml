@@ -82,14 +82,14 @@ function gravatar_async() {
 	}
 }
 
-/// @func gravatar(email [autoload], [size], [rating], [reference], [function], [force_reference])
+/// @func gravatar(email [autoload], [size], [rating], [default_image], [function], [force_default_image])
 /// @param email
 /// @param [autoload]
 /// @param [size]
 /// @param [rating]
-/// @param [reference]
+/// @param [default_image]
 /// @param [function]
-/// @param [force_reference]
+/// @param [force_default_image]
 function gravatar(_email, _autoload = true, _size = 80, _rating = "g", _ref = undefined, _func = undefined, _forceRef = false) constructor {
 	email = _email;
 	emailHash = md5_string_utf8(_email);
@@ -140,7 +140,7 @@ function gravatar(_email, _autoload = true, _size = 80, _rating = "g", _ref = un
 		return self;
 	}
 	
-	static setRef = function(_ref = "default") {
+	static setDefImage = function(_ref = "default") {
 		ref = _ref;
 		return self;
 	}
@@ -155,7 +155,7 @@ function gravatar(_email, _autoload = true, _size = 80, _rating = "g", _ref = un
 		return self;
 	}
 	
-	static setForceRef = function(_forceRef = false) {
+	static setForceDef = function(_forceRef = false) {
 		forceRef = _forceRef;
 		return self;
 	}
