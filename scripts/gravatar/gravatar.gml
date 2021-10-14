@@ -64,15 +64,10 @@ function gravatar_async() {
 					}
 					
 					if (_struct.func == undefined) {
-						_struct.__addImage(_spriteID);
+						_struct.__addImage(_spriteID, _email);
 					} else {
 						_struct.func(_spriteID, _email);	
 					}
-					
-					// Add sprite to database
-					global.__gravatarMap[$ _email] = _spriteID;
-					_struct.spriteMap[$ _email] = _spriteID;
-					
 					
 				} else {
 					// Remove it to prevent memory leaks
@@ -130,12 +125,16 @@ function gravatar(_email, _autoload = true, _size = 80, _rating = "g", _ref = un
 	
 	static extract = function() {
 		if (hasImages) {
-			var _image = spriteList[0];
+			var _image = spriteList[0][0];
+			var _email = spriteList[0][1];
 			array_delete(spriteList, 0, 1);
 			
 			if (array_length(spriteList) == 0) {
 				hasImages = false;	
 			}
+			
+			variable_struct_remove(global.__gravatarMap, _email);
+			variable_struct_remove(spriteMap, _email);
 			
 			return _image;
 		}
@@ -172,8 +171,16 @@ function gravatar(_email, _autoload = true, _size = 80, _rating = "g", _ref = un
 		return self;
 	}
 	
-	static __addImage = function(_image) {
-		array_push(spriteList, _image);
+	static __addImage = function(_image, _email) {
+		if variable_struct_exists(global.__gravatarMap, _email) {
+			__gravatar_trace("Email " + _email + " already exists!");
+			return _image;
+		}
+		array_push(spriteList, [_image, _email]);
+		
+		global.__gravatarMap[$ _email] = _image;
+		spriteMap[$ _email] = _image;
+		
 		hasImages = true;
 		return _image;	
 	}
@@ -182,8 +189,8 @@ function gravatar(_email, _autoload = true, _size = 80, _rating = "g", _ref = un
 		var _len = array_length(spriteList);
 		var _i = 0;
 		repeat(_len) {
-			if (sprite_exists(spriteList[_i])) {
-				sprite_delete(spriteList[_i]);	
+			if (sprite_exists(spriteList[_i][0])) {
+				sprite_delete(spriteList[_i][0]);	
 			}
 			++_i;
 		}

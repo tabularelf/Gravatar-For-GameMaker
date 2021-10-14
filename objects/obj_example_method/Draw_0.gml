@@ -4,7 +4,7 @@ if (avatar.hasImages) {
 	var _length = array_length(avatar.spriteList);
 	var _i = 0;
 	repeat(_length) {
-		draw_sprite(avatar.spriteList[_i], 0, 32 + (_i * 80), 32);		
+		draw_sprite(avatar.spriteList[_i][0], 0, 32 + (_i * 80), 32);		
 		++_i;
 	}
 }
