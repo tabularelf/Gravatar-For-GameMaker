@@ -1,4 +1,4 @@
-# Gravatar-For-GameMaker V1.0.0
+# Gravatar-For-GameMaker v1.0.0
 
 Adds Gravatar implementation into GameMaker Studio 2.
 https://en.gravatar.com/site/implement/images/
