@@ -33,6 +33,7 @@ function gravatar_image_get(_email) {
 /// @param email
 function gravatar_image_delete(_email) {
 	if (variable_struct_exists(global.__gravatarMap, _email)) {
+		sprite_delete(global.__gravatarMap[$ _email]);
 		variable_struct_remove(global.__gravatarMap, _email);
 	} else {
 		__gravatar_trace("Email " + _email + " doesn't exist!");
