@@ -3,6 +3,8 @@
 Adds Gravatar implementation into GameMaker Studio 2.
 https://en.gravatar.com/site/implement/images/
 
+Example: https://tabularelf.com/examples/gravatar-example/
+
 ## Basic implementation:
 ```gml
 // gravatar(email [autoload], [size], [rating], [default_image], [function], [force_default_image])
